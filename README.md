@@ -1,1 +1,2 @@
-# laravel_board
+# yosesblog
+兄ちゃんとブログ作るやつ
