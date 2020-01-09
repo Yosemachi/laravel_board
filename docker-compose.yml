@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  web1:
-    container_name: web1
+  weblaravel:
+    container_name: weblaravel
     build: ./docker
     ports:
-      - 80:80
+      - 9595:80
     privileged: true
     volumes:
       - ./server:/var/www/html

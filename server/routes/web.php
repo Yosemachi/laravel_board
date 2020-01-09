@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 // 投稿一覧画面
 Route::get('/index', 'boardController@index');
-Route::get('/edit/{id}', 'boardController@show');
+Route::get('/edit/{id}', 'boardController@edit');
+Route::get('/create', 'boardController@create');
+Route::get('/save', 'boardController@save');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\board;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 
 class boardController extends Controller
 {
@@ -14,15 +14,28 @@ class boardController extends Controller
 
         return view('index', compact('board'));
     }
-    public function show(Request $request, $id)
+
+    public function create(Request $request){
+        $params = $request->all();
+        
+        // board::create($params);
+
+        return view('index', compact('params'));
+    }
+
+    public function edit(Request $request, $id)
     {
         $board = board::find($id);
 
-        foreach($board as $key=>$value){
-            $message = $value['message'];
-            $id = $value['id'];
-        }
+        return view('edit', compact('board'));
+    }
+    public function save(Request $request)
+    {
+        $params = $request->all();
+        // dd($params);
+        board::where('id', $params['id'])->update(['message' => $params['message']]);
+        $board = board::get();
 
-        return view('edit', compact('message', 'id'));
+        return view('index', compact('params', 'board'));
     }
 }

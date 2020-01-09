@@ -2,6 +2,13 @@
 @section('content')
 
 <h1>Laravel掲示板</h1>
+{{Form::open(['action' => 'boardController@create', 'method' => 'GET'])}}
+{{ csrf_field() }}
+
+{{Form::text('message')}}
+
+{{Form::submit('送信')}}
+{{ Form::close() }}
 <table>
     @foreach($board as $key=>$value)
     <tr>

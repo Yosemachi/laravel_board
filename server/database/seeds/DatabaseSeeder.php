@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             \App\User::create([
                 'id' => substr($key, 11),
                 'email' => $value.'@gmail.com',
-                'password' => 123456,
+                'password' => bcrypt('123456'),
                 'name' => $value,
                 'message' => $value.'さんのテスト投稿です。'
             ]);
