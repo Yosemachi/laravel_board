@@ -1,8 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 
 <h1>Laravel掲示板</h1>
-{{Form::open(['action' => 'boardController@create', 'method' => 'GET'])}}
+{{Form::open(['action' => 'boardController@create', 'method' => 'POST'])}}
 {{ csrf_field() }}
 
 {{Form::text('message')}}

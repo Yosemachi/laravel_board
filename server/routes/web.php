@@ -12,15 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 // 投稿一覧画面
 Route::get('/index', 'boardController@index');
 Route::get('/edit/{id}', 'boardController@edit');
-Route::get('/create', 'boardController@create');
-Route::get('/save', 'boardController@save');
+Route::post('/create', 'boardController@create');
+Route::post('/save', 'boardController@save');
+Route::post('/delete', 'boardController@delete');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
