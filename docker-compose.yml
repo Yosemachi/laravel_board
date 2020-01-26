@@ -10,9 +10,9 @@ services:
     volumes:
       - ./server:/var/www/html
 
-  db:
+  dblaravel:
     image: mysql:5.7
-    container_name: db-host
+    container_name: db-laravel
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: docker-database
@@ -32,7 +32,7 @@ services:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOSTS=db-host
+      - PMA_HOSTS=db-laravel
       - PMA_USER=root
       - PMA_PASSWORD=root
     ports:
